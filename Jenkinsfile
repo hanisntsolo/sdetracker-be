@@ -5,6 +5,7 @@ pipeline {
         // Set environment variables here (if needed)
         DOCKER_HUB_CREDENTIALS = credentials('docker-hub-credentials')
         SERVER_SSH_CREDENTIALS = credentials('cloud-ssh-id')
+        IMAGE_NAME = 'hanisntsolo/sdetracker-be'
         SERVER_USER = 'root'
         SERVER_IP = '34.152.7.19'
         SERVER_DESTINATION_FOLDER = '/docker/lab/deployed'
