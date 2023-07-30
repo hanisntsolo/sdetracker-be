@@ -1,6 +1,19 @@
 name: Trigger Jenkins Build
-  run: |
-    CRUMB=$(curl -s "https://jenkins.your-domain.com/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)")
-    curl -X POST "https://jenkins.your-domain.com/job/sdetracker-be/build" \
-      --user hanisntsolo:zaq12wsx \
-      -H "$CRUMB"
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger_jenkins_build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Trigger Jenkins Build
+      env:
+        CRUMB: ${{ secrets.JENKINS_CRUMB }}
+      run: |
+        curl -X POST "https://jenkins.hanisntsolo.online/job/sdetracker-be/build" \
+          --user hanisntsolo:zaq12wsx \
+          -H "$CRUMB"
