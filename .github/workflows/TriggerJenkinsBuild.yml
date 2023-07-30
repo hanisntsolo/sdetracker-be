@@ -14,3 +14,4 @@ jobs:
         run: |
           curl -X POST "https://jenkins.hanisntsolo.online/job/sdetracker-be/build" \
             --user hanisntsolo:11ee3b80231ab8006fd67c5a9e93e014b6
+            
