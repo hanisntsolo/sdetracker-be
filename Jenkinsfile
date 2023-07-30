@@ -15,11 +15,6 @@ pipeline {
     }
     
     stages {
-        stage('Install TypeScript') {
-            steps {
-                sh 'npm install -g typescript'
-            }
-        }
         stage('Build Node.js Application') {
             steps {
                 sh 'npm install'
