@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app.ts",
-    "build": "tsc app.ts",
+    "build": "tsc --esModuleInterop app.ts",
     "test": "npm test"
   },
   "repository": {
