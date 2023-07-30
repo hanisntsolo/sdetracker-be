@@ -19,7 +19,7 @@ pipeline {
         stage('Build Node.js Application') {
             steps {
                 sh 'npm install'
-                // sh 'npm run build'
+                sh 'npm run build'
             }
         }
         
