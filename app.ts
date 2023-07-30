@@ -7,10 +7,11 @@ const port = process.env.PORT || 3001; // Use the port specified in the environm
 const uri = 'mongodb://hanisntsolo:zaq12wsx@localhost:27017/sdetracker';
 // Replace "localhost" with the appropriate MongoDB host or IP address
 // "sdetracker" is the database you want to connect to
-const client = new MongoClient(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const client = new MongoClient(uri);
+// const client = new MongoClient(uri, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 async function connectToDatabase(): Promise<Db> {
   try {
