@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "allowJs": true,
+      "outDir": "dist",
+      "target": "es5",
+      "module": "commonjs",
+      "strict": true
+    },
+    "include": [
+      "app.ts"
+    ]
+  }
+  

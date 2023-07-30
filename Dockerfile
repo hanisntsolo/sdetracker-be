@@ -12,14 +12,14 @@ RUN apt-get update && apt-get install -y docker-ce-cli
 FROM node:14
 
 # Install TypeScript globally
-RUN npm install -g typescript
-RUN npm install
+# RUN npm install -g typescript
+# RUN npm install
 
-# Set the working directory for Jenkins builds
-WORKDIR /var/jenkins_home/workspace
+# # Set the working directory for Jenkins builds
+# WORKDIR /var/jenkins_home/workspace
 
-# Start the Jenkins agent
-CMD java -jar agent.jar -jnlpUrl $JENKINS_URL/computer/$JENKINS_AGENT_NAME/slave-agent.jnlp -secret $JENKINS_AGENT_SECRET
+# # Start the Jenkins agent
+# CMD java -jar agent.jar -jnlpUrl $JENKINS_URL/computer/$JENKINS_AGENT_NAME/slave-agent.jnlp -secret $JENKINS_AGENT_SECRET
 
 # Set the working directory inside the container
 WORKDIR /app
