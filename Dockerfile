@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y docker-ce-cli
 # Use the official Node.js image as the base image
 FROM node:14
 
+# Install TypeScript globally
+RUN npm install -g typescript
 # Set the working directory inside the container
 WORKDIR /app
 
