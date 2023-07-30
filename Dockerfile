@@ -8,10 +8,18 @@ RUN curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /
 RUN echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
 RUN apt-get update && apt-get install -y docker-ce-cli
 # Use the official Node.js image as the base image
+# Use the official Node.js image as the base image
 FROM node:14
 
 # Install TypeScript globally
 RUN npm install -g typescript
+
+# Set the working directory for Jenkins builds
+WORKDIR /var/jenkins_home/workspace
+
+# Start the Jenkins agent
+CMD java -jar agent.jar -jnlpUrl $JENKINS_URL/computer/$JENKINS_AGENT_NAME/slave-agent.jnlp -secret $JENKINS_AGENT_SECRET
+
 # Set the working directory inside the container
 WORKDIR /app
 
