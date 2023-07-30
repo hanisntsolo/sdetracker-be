@@ -4,6 +4,8 @@
   "description": "sdetracker backend",
   "main": "index.js",
   "scripts": {
+    "start": "node app.js",
+    "build": "npm run build",
     "test": "npm test"
   },
   "repository": {

@@ -1,19 +1,28 @@
-# Use a Node.js base image with the desired version
+FROM jenkins/jenkins:latest
+
+USER root
+
+# Install Docker CLI inside the Jenkins container
+RUN apt-get update && apt-get install -y apt-transport-https ca-certificates curl gnupg lsb-release
+RUN curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+RUN echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+RUN apt-get update && apt-get install -y docker-ce-cli
+# Use the official Node.js image as the base image
 FROM node:14
 
 # Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the container
+# Copy package.json and package-lock.json (or yarn.lock) to install dependencies
 COPY package*.json ./
 
-# Install project dependencies
-RUN npm install --production
+# Install application dependencies
+RUN npm install
 
-# Copy the rest of the application files to the container
+# Copy the rest of the application code
 COPY . .
 
-# Expose the port that your Node.js app is listening on (adjust as needed)
+# Expose the application port (assuming your Node.js app runs on port 3000)
 EXPOSE 8088
 
 # Start the Node.js application
