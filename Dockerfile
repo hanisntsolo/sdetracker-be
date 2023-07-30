@@ -13,6 +13,7 @@ FROM node:14
 
 # Install TypeScript globally
 RUN npm install -g typescript
+RUN npm install
 
 # Set the working directory for Jenkins builds
 WORKDIR /var/jenkins_home/workspace
