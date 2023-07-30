@@ -11,11 +11,9 @@ jobs:
 
     steps:
       - name: Get Jenkins Crumb
-        env:
-          uri: "https://jenkins.hanisntsolo.online/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb)"
         id: get_crumb
         run: |
-          echo "CRUMB=$(curl -s $uri)" >> $GITHUB_ENV
+          echo "CRUMB=$(curl -s "https://jenkins.hanisntsolo.online/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb)" >> $GITHUB_ENV
 
       - name: Trigger Jenkins Build
         env:
