@@ -20,7 +20,6 @@ async function connectToDatabase() {
   }
 }
 
-
 connectToDatabase();
 
 async function getUserData() {
@@ -38,14 +37,14 @@ getUserData();
 
 async function createUser() {
   try {
-    const db = client.db('your-database-name'); // Replace 'your-database-name' with your actual database name
+    const db = client.db('sdetracker'); // Replace 'your-database-name' with your actual database name
     const usersCollection = db.collection('users');
 
     // The user document you want to insert
     const newUser = {
       username: 'john_doe',
       email: 'john.doe@example.com',
-      password: 'hashed_password_here', // You should store a hashed password, not the plain password
+      password: 'usercreated', // You should store a hashed password, not the plain password
       role: 'user', // Optional: Add any other user-related data you need
     };
 
