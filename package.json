@@ -1,0 +1,25 @@
+{
+  "name": "sdetracker-be",
+  "version": "1.0.0",
+  "description": "sdetracker backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanisntsolo/sdetracker-be.git"
+  },
+  "keywords": [
+    "sdetracker"
+  ],
+  "author": "Singh Dhirendra",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hanisntsolo/sdetracker-be/issues"
+  },
+  "homepage": "https://github.com/hanisntsolo/sdetracker-be#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
