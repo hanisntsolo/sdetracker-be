@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Get Jenkins CRUMB
         run: |
-          CRUMB_RESPONSE=$(curl -s "https://jenkins.hanisntsolo.online/crumbIssuer/api/json" -u "hanisntsolo:${{ secrets.JENKINS_API_TOKEN }}")
+          CRUMB_RESPONSE=$(curl -s "https://jenkins.hanisntsolo.online/crumbIssuer/api/json" -u "hanisntsolo:11d5d4966d24071a4e3f052a037f55bd96")
           CRUMB=${CRUMB_RESPONSE#*\"crumb\":\"}
           CRUMB=${CRUMB%%\"*}
           echo "CRUMB=${CRUMB}" >> $GITHUB_ENV
