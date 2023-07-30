@@ -12,10 +12,12 @@ jobs:
     steps:
       - name: Get Jenkins CRUMB
         run: |
-          CRUMB_RESPONSE=$(curl -s "https://jenkins.hanisntsolo.online/crumbIssuer/api/json")
+          CRUMB_RESPONSE=$(curl -s "https://jenkins.hanisntsolo.online/crumbIssuer/api/json" -u "hanisntsolo:${{ secrets.JENKINS_API_TOKEN }}")
           CRUMB=${CRUMB_RESPONSE#*\"crumb\":\"}
           CRUMB=${CRUMB%%\"*}
           echo "CRUMB=${CRUMB}" >> $GITHUB_ENV
+        shell: bash
+
       - name: Trigger Jenkins Build
         env:
           JENKINS_USER: hanisntsolo
