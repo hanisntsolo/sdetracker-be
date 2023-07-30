@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Trigger Jenkins Build
-      env:
-        CRUMB: ${{ secrets.JENKINS_CRUMB }}
-      run: |
-        curl -X POST "https://jenkins.hanisntsolo.online/job/sdetracker-be/build" \
-          --user hanisntsolo:zaq12wsx \
-          -H "$CRUMB"
+      - name: Trigger Jenkins Build
+        env:
+          CRUMB: ${{ secrets.JENKINS_CRUMB }}
+        run: |
+          curl -X POST "https://jenkins.hanisntsolo.online/job/sdetracker-be/build" \
+            --user hanisntsolo:zaq12wsx \
+            -H "$CRUMB"
