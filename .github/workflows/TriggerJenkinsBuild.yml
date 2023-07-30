@@ -10,10 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get Jenkins Crumb
-        id: get_crumb
+      - name: Get Jenkins CRUMB
         run: |
-          echo "CRUMB=$(curl -s "https://jenkins.hanisntsolo.online/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb)")" >> $GITHUB_ENV
+          CRUMB=$(curl -s "https://jenkins.hanisntsolo.online/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,%22:%22,//crumb)" -u "hanisntsolo:$JENKINS_API_TOKEN")
+          echo "CRUMB=${CRUMB}" >> $GITHUB_ENV
+        shell: bash
 
       - name: Trigger Jenkins Build
         env:
