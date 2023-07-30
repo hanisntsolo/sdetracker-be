@@ -2,7 +2,7 @@ import express from 'express';
 import { MongoClient, Db, Collection, ObjectId } from 'mongodb';
 
 const app = express();
-const port = process.env.PORT || 3001; // Use the port specified in the environment variable or port 3001
+const port = process.env.PORT || 8088; // Use the port specified in the environment variable or port 3001
 
 const uri = 'mongodb://hanisntsolo:zaq12wsx@localhost:27017/sdetracker';
 // Replace "localhost" with the appropriate MongoDB host or IP address
