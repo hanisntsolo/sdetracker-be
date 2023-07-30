@@ -13,7 +13,7 @@ const client = new MongoClient(uri);
 //   useUnifiedTopology: true,
 // });
 //Just checking in for automatic deployment7
-console.log('trying dep 03')
+console.log('trying dep 04')
 
 async function connectToDatabase(): Promise<Db> {
   try {
