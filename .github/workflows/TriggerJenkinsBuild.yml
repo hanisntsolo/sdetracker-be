@@ -10,8 +10,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Get Jenkins Crumb
+        run: |
+          CRUMB=$(curl -s "https://jenkins.hanisntsolo.online/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)")
+          echo "JENKINS_CRUMB=${CRUMB}" >> $GITHUB_ENV
+
       - name: Trigger Jenkins Build
+        env:
+          JENKINS_API_TOKEN: ${{ secrets.JENKINS_API_TOKEN }}
         run: |
           curl -X POST "https://jenkins.hanisntsolo.online/job/sdetracker-be/build" \
-            --user hanisntsolo:11ee3b80231ab8006fd67c5a9e93e014b6
+            --user hanisntsolo:${JENKINS_API_TOKEN} \
+            -H "${JENKINS_CRUMB}"
+
             
