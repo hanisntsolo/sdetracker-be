@@ -1,4 +1,4 @@
-- name: Trigger Jenkins Build
+name: Trigger Jenkins Build
   run: |
     CRUMB=$(curl -s "https://jenkins.your-domain.com/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)")
     curl -X POST "https://jenkins.your-domain.com/job/sdetracker-be/build" \
