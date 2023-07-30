@@ -11,6 +11,8 @@ jobs:
 
     steps:
       - name: Get Jenkins Crumb
+        env:
+          GITHUB_ENV: ''
         id: get_crumb
         run: |
           CRUMB=$(curl -s "https://jenkins.hanisntsolo.online/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)")
