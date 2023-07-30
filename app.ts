@@ -68,7 +68,7 @@ async function createUser(db: Db): Promise<void> {
 
 // Define a simple route
 app.get('/', (req, res) => {
-  res.send('Hello, this is your Node.js backend!');
+  res.send('Hello, this is your Node.js backend with automatedbuil!-at 20:57!');
 });
 
 // Start the server
