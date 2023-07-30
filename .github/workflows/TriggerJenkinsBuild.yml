@@ -18,8 +18,9 @@ jobs:
 
       - name: Trigger Jenkins Build
         env:
-          JENKINS_API_TOKEN: ${{ secrets.JENKINS_API_TOKEN }}
+          JENKINS_USER: hanisntsolo
+          JENKINS_TOKEN: 11ee3b80231ab8006fd67c5a9e93e014b6
         run: |
           curl -X POST "https://jenkins.hanisntsolo.online/job/sdetracker-be/build" \
-            --user hanisntsolo:${JENKINS_API_TOKEN} \
+            --user "${JENKINS_USER}:${JENKINS_TOKEN}" \
             -H "${CRUMB}"
