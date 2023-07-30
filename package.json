@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/hanisntsolo/sdetracker-be#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongodb": "^5.7.0"
   }
 }
