@@ -12,7 +12,7 @@ const client = new MongoClient(uri);
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // });
-//Just checking in for automatic deployment2
+//Just checking in for automatic deployment3
 console.log('trying dep 01')
 
 async function connectToDatabase(): Promise<Db> {
